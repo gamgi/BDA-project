@@ -9,6 +9,10 @@ pip install -r requirements.txt
 python test.py
 ```
 
+# Development
+## Linting
+`./lint.sh`
+
 # Fetching data
 In project root, run `bin/download_data.sh`.
 This requires [jq](https://stedolan.github.io/jq/).
