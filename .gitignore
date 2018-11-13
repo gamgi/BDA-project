@@ -1,2 +1,5 @@
 *.csv
 *.json
+*.sw*
+__pycache__/
+venv/
