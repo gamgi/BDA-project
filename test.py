@@ -20,15 +20,31 @@ print(df_all.sort_values(by=["municipality_code", "year"]).head(n=20))
 
 sample = df_all.sample(frac=1)
 
+
+def plot_class(
+        df,
+        class_variable,
+        x_variable="taxable income, median",
+        y_variable="mean",
+        xlabel='median income for municipality',
+        ylabel='exam mean for school',
+        min_n=1,
+        legend=True):
+    fig, ax = plt.subplots(figsize=(10, 5))
+    classes = np.unique(df[[class_variable]].values.flatten())
+    for i, c in enumerate(classes):
+        d = df.loc[(df[class_variable] == c) & (df['pass'] >= min_n)]
+        x = d.loc[:, x_variable].values
+        y = d.loc[:, y_variable].values
+        ax.scatter(x, y, 10, marker=',', label=c)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    if legend:
+        plt.legend(loc=1, prop={'size': 6})
+    plt.show()
+
+
 # Plot
-fig, ax = plt.subplots(figsize=(10, 5))
-years = np.unique(df_all[['year']].values.flatten())
-for i, year in enumerate(years):
-    df = sample.loc[sample['year'] == year]
-    x = df.loc[:, "taxable income, median"].values
-    y = df.loc[:, "mean"].values
-    ax.scatter(x, y, 10, marker=',', label=year)
-ax.set_xlabel('median income for municipality')
-ax.set_ylabel('exam mean for school')
-plt.legend()
-plt.show()
+plot_class(sample, 'year')
+plot_class(sample, 'season')
+plot_class(sample, 'municipality', min_n=50)
