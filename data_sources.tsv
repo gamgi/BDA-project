@@ -3,11 +3,19 @@
 # Finnish Matriculation Examination organisation - päivittyvä, oppilaitoskohtainen tarkastelu
 # https://www.ylioppilastutkinto.fi/tietopalvelut/tilastot/koulukohtaisia-tunnuslukuja
 schools.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2017KD0011.csv
+#results_2012K.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2012KD4100.csv
+#results_2012S.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2012SD4100.csv
+#results_2013K.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2013KD4100.csv
+#results_2013S.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2013SD4100.csv
+results_2014K.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2014KD4100.csv
+results_2014S.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2014SD4100.csv
+results_2015K.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2015KD4100.csv
+results_2015S.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2015SD4100.csv
 results_2016K.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2016KD4100.csv
 results_2016S.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2016SD4100.csv
-results_2017K.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2017KD4100.csv
-results_2017S.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2017SD4100.csv
-results_2018K.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2018KD4100.csv
+#results_2017K.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2017KD4100.csv
+#results_2017S.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2017SD4100.csv
+#results_2018K.csv	https://www.ylioppilastutkinto.fi/ext/data/FT2018KD4100.csv
 # Statistics finland - Number of income recipients, taxable incomes and taxes 2005-2016, €
 # http://pxnet2.stat.fi/PXWeb/pxweb/en/StatFin/StatFin__tul__tvt/statfin_tvt_pxt_012.px
 income.csv	http://pxnet2.stat.fi/PXWeb/sq/1739095b-adf5-4bf8-ae79-f90153b503c2

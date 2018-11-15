@@ -7,11 +7,19 @@ FILES = {
     'muni': 'data/municipal.csv',
     'school': 'data/schools.csv',
     'results': [
+        # 'data/results_2012K.csv',
+        # 'data/results_2012S.csv',
+        # 'data/results_2013K.csv',
+        # 'data/results_2013S.csv',
+        'data/results_2014K.csv',
+        'data/results_2014S.csv',
+        'data/results_2015K.csv',
+        'data/results_2015S.csv',
         'data/results_2016K.csv',
         'data/results_2016S.csv',
-        'data/results_2017K.csv',
-        'data/results_2017S.csv',
-        'data/results_2018K.csv'
+        # 'data/results_2017K.csv',
+        # 'data/results_2017S.csv',
+        # 'data/results_2018K.csv'
     ]
 }
 # https://www.ylioppilastutkinto.fi/tietopalvelut/tilastot/koulukohtaisia-tunnuslukuja
