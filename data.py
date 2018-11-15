@@ -47,12 +47,20 @@ class Data:
 
         df_results = pd.DataFrame()
         for result_file in config.FILES['results']:
-            df_result_raw = pd.read_csv(result_file, encoding="ISO-8859-1", sep=";", decimal=",")
+            df_result_raw = pd.read_csv(
+                result_file, encoding="ISO-8859-1", sep=";", decimal=",")
             # Translate finnish column names
             df_result_raw.rename(columns=config.TRANSLATE_RESULT_COLUMNS, inplace=True)
 
             df_result = pd.merge(df_result_raw, df_school, on="school_id")
             df_results = pd.concat([df_results, df_result], ignore_index=True, sort=False)
+
+        # Split "round" column values, eg. 2016K -> 2016, K
+        groups = r'(?P<year>\d{4})(?P<season>[SK])'
+        df_results[['year', 'season']] = df_results['round'].str.extract(
+            groups, expand=True)
+        df_results["year"] = pd.to_numeric(df_results["year"])
+
         return df_results
 
     @staticmethod
