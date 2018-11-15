@@ -47,7 +47,7 @@ class Data:
 
         df_results = pd.DataFrame()
         for result_file in config.FILES['results']:
-            df_result_raw = pd.read_csv(result_file, encoding="ISO-8859-1", sep=";")
+            df_result_raw = pd.read_csv(result_file, encoding="ISO-8859-1", sep=";", decimal=",")
             # Translate finnish column names
             df_result_raw.rename(columns=config.TRANSLATE_RESULT_COLUMNS, inplace=True)
 
