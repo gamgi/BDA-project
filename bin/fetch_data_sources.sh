@@ -8,7 +8,7 @@ do
     : # no-op
   elif beginswith http "$col2"; then
     echo "Fetching $col2 to $col1"
-    curl --silent --show-error -o "$col1" "$col2"
+    curl --silent --show-error -o "data/$col1" "$col2"
   else
     echo "Skipping \"$col2\", not a valid url"
   fi
