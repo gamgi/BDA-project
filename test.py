@@ -1,22 +1,17 @@
+from data import Data
+import config
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-
-import config
-
-
-def load_data():
-    df_income = pd.read_csv(config.FILES['income'], encoding="ISO-8859-1", skiprows=1)
-    print(df_income.head())
-
-    df_muni = pd.read_csv(
-        config.FILES['muni'],
-        encoding="utf-8",
-        skiprows=1,
-        header=None,
-        names=[
-            "Code",
-            "Municipality"])
-    print(df_muni.head())
+import matplotlib
+matplotlib.use("TkAgg")
 
 
-load_data()
+df_income, df_results = Data.load()
+print(df_results.head())
+print(df_income.head())
+
+df_all = pd.merge(df_income, df_results, on="municipality_code")
+exit(0)
+
+print(df_all.head())
