@@ -62,7 +62,9 @@ df_all = pd.merge(df_results, df_income, on=["municipality_code", "year"], how='
 
 # Sample
 print("Using a sample for calculations")
-df = df_all[(df_all['season'] == 'K')]
+excluded_munis = ['Helsinki', 'Espoo', 'Kauniainen']
+df = df_all[(~df_all['municipality'].isin(excluded_munis)) & (df_all['season'] == 'K')]
+# df = df_all[(df_all['season'] == 'K')]
 sample = df.sample(frac=0.2, random_state=1)
 
 # Prepare data
