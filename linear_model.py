@@ -1,6 +1,9 @@
 from sys import exit
 import pystan
 import numpy as np
+import matplotlib
+matplotlib.use("TkAgg")
+import matplotlib.pyplot as plt
 import pandas as pd
 import logging
 import warnings
@@ -22,7 +25,7 @@ print("Using a sample for calculations")
 excluded_munis = ['Helsinki', 'Espoo', 'Kauniainen']
 df = df_all[(~df_all['municipality'].isin(excluded_munis)) & (df_all['season'] == 'K')]
 # df = df_all[(df_all['season'] == 'K')]
-sample = df.sample(frac=0.2, random_state=1)
+sample = df.sample(frac=0.5, random_state=1)
 
 # Prepare data
 N, d = sample.shape
@@ -33,7 +36,7 @@ data = dict(
     N=N,
     x=x,
     y=y,
-    sigma0=4.0
+    sigma0=0.5
 )
 
 
@@ -71,7 +74,7 @@ def plot_model(data, samples):
 print("Compiling model...")
 model = Model('model.linear.stan')
 print("Fitting data to model...")
-fit = model.sample(data=data)
+fit = model.sample(data=data, iter=2500)
 samples = fit.extract(permuted=True)
 print("Fitted...")
 
