@@ -25,7 +25,7 @@ print("Using a sample for calculations")
 excluded_munis = ['Helsinki', 'Espoo', 'Kauniainen']
 df = df_all[(~df_all['municipality'].isin(excluded_munis)) & (df_all['season'] == 'K')]
 # df = df_all[(df_all['season'] == 'K')]
-sample = df.sample(frac=0.5, random_state=1)
+sample = df.sample(frac=0.33, random_state=1)
 
 # Prepare data
 N, d = sample.shape
@@ -36,7 +36,9 @@ data = dict(
     N=N,
     x=x,
     y=y,
-    sigma0=0.5
+    sigma0=0.005,
+    sigma1=0.05,
+    mu1=3.5
 )
 
 
@@ -74,7 +76,7 @@ def plot_model(data, samples):
 print("Compiling model...")
 model = Model('model.linear.stan')
 print("Fitting data to model...")
-fit = model.sample(data=data, iter=2500)
+fit = model.sample(data=data)  # , iter=2500)
 samples = fit.extract(permuted=True)
 print("Fitted...")
 
