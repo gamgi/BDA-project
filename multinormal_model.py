@@ -36,11 +36,28 @@ xy = list(zip(x, y))
 data = dict(
     N=N,
     y=xy,
-    sigma0=100,
+    # sigma0=100,
     sigma1=1,
     tau=np.array([[100, 0], [0, 1]]),
     mu0=[22500, 4.5]
 )
+
+# https://stackoverflow.com/questions/41597177/get-aspect-ratio-of-axes
+from operator import sub
+
+
+def get_aspect(ax):
+    # Total figure size
+    figW, figH = ax.get_figure().get_size_inches()
+    # Axis size on figure
+    _, _, w, h = ax.get_position().bounds
+    # Ratio of display units
+    disp_ratio = (figH * h) / (figW * w)
+    # Ratio of data units
+    # Negative over negative because of the order of subtraction
+    data_ratio = sub(*ax.get_ylim()) / sub(*ax.get_xlim())
+
+    return disp_ratio / data_ratio
 
 
 def plot_model(data, samples):
@@ -57,7 +74,8 @@ def plot_model(data, samples):
     sigma = np.mean(samples['sigma'], axis=0).flatten()
 
     # Scatterplot with cov ellipsis
-    aspect = (max(x) - min(x)) / (max(y) - min(y))
+    #aspect = (max(x) - min(x)) / (max(y) - min(y))
+    aspec = (35000 - 15000) / (7 - 1)
     angle = np.rad2deg(np.arctan(sigma[1]))
 
     for j in [1]:  # range(1, 4):

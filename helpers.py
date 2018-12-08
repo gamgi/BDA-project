@@ -20,13 +20,12 @@ def plot_pareto_ks(y, label):
     plt.show()
 
 
-def plot_pareto_ks2(y, label):
-    print("Plotting pareto k for {}".format(label))
+def plot_pareto_ks2(y):
     N = len(y)
     fig, ax = plt.subplots(figsize=(10, 5))
     ax.scatter(range(1, N + 1), y, 100, marker='x')
     ax.set_ylim(-0.1, 1.1)
-    for l in [0, 0.5, 0.7]:
+    for l in [0.5, 0.7]:
         ax.axhline(l, alpha=0.4, color='red', linestyle='--')
     ax.set_xlabel('Observation left out')
     ax.set_ylabel('Pareto k')
@@ -42,6 +41,7 @@ def plot_data(
         min_n=1,
         selected_classes=None,
         class_variable='municipality'):
+    return
     """Plot scatterplot hilighting certain selected_classes"""
 
     if selected_classes is None:
