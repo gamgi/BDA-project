@@ -41,7 +41,6 @@ def plot_data(
         min_n=1,
         selected_classes=None,
         class_variable='municipality'):
-    return
     """Plot scatterplot hilighting certain selected_classes"""
 
     if selected_classes is None:
