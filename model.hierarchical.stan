@@ -19,3 +19,9 @@ model {
   mu ~ normal(omega, tau2);
   y ~ normal(mu[x], sigma);
 }
+
+generated quantities {
+    vector[N] log_lik;
+    for (i in 1:N)
+        log_lik[i] = normal_lpdf(y[i] | mu[x[i]], sigma);
+}
